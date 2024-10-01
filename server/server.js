@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const apiRouter = require('./Router/api');
 
-app.use('/api', apiRouter);
+app.use('/api/', apiRouter);
 
 const port = 5000;
 

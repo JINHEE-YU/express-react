@@ -1,7 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
+import {useEffect} from "react";
 
 function App() {
+
+  const callApi = async () => {
+    axios.get("/api").then((res)=>{
+      console.log(res.data);
+    }).catch((err) => {
+      console.log(err);
+    })
+  }
+  useEffect(() => {
+    callApi();
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -20,6 +34,7 @@ function App() {
       </header>
     </div>
   );
+
 }
 
 export default App;
