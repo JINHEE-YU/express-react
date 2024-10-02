@@ -1,19 +1,9 @@
 const express = require('express');
 const router = express.Router();
+// const dbPool = require('../src/config/dbconnect-postgresql');
 
-const dbPool = require('../src/config/dbconnect-postgresql');
+const testRouter = require('./test');
 
-router.get("/", (req, res) => {
-    res.send("hello api router");
-});
-
-router.get("/db-test", async (req, res) => {
-    try {
-        const result = await dbPool.query('select version()');
-        res.status(201).json(result.rows[0]);
-    }catch (err) {
-        res.status(500).json({error: 'Database error'});
-    }
-});
+router.use("/test", testRouter)
 
 module.exports = router;
