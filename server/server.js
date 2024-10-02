@@ -4,6 +4,11 @@ const app = express();
 // 환경변수 설정
 require('dotenv').config();
 
+// 로그 설정
+const morganMiddleware = require('./src/config/log-morgan');
+app.use(morganMiddleware);
+
+
 // Swagger 설정
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocs = require('./src/swagger/swaggerOptions');
