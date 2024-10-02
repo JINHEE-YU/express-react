@@ -1,4 +1,4 @@
-require('dotenv').config();
+
 const { Pool } = require('pg');
 
 const pool = new Pool({
@@ -9,7 +9,7 @@ const pool = new Pool({
   port: process.env.DB_PORT,
 });
 
-// 데이터베이스 연결 테스트
+// 데이터베이스 연결 확인
 pool.connect()
   .then(() => console.log('PostgreSQL 연결 성공!'))
   .catch(err => console.error('PostgreSQL 연결 오류:', err));
