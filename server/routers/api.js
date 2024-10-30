@@ -14,7 +14,9 @@ router.get('/example', (req, res) => {
 });
 
 const testRouter = require('./test');
-
 router.use("/test", testRouter)
+
+const jwtRouter = require('./jwt');
+router.use("/jwt", jwtRouter);
 
 module.exports = router;
